@@ -6,13 +6,13 @@ services:
     image: adityasanil/reverseproxy
   backend_user:
     build:
-      context: ../../udacity-c3-restapi-user
+      context: ../udacity-c3-restapi-user
     image: adityasanil/udacity-restapi-user
   backend_feed:
     build:
-      context: ../../udacity-c3-restapi-feed
+      context: ../udacity-c3-restapi-feed
     image: adityasanil/udacity-restapi-feed
   frontend:
     build:
-      context: ../../udacity-c3-frontend
+      context: ../udacity-c3-frontend
     image: adityasanil/udacity-frontend:local
