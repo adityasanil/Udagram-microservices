@@ -17,4 +17,4 @@ before_install:
 
 install:
   - echo 'Hello! I am Travis'
-  - docker-compose -f udacity-c3-deployment/docker-compose-build.yaml build --parallel
+  - docker-compose -f udacity-c3-deployment/docker-compose-build-2.yaml build --parallel
