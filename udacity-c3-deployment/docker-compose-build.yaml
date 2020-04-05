@@ -6,13 +6,13 @@ services:
       dockerfile: Dockerfile
   backend_user:
     build:
-      context: ../../udacity-c3-restapi-user
+      context: ../udacity-c3-restapi-user
       dockerfile: Dockerfile
   backend_feed:
     build:
-      context: ../../udacity-c3-restapi-feed
+      context: ../udacity-c3-restapi-feed
       dockerfile: Dockerfile
   frontend:
     build:
-      context: ../../udacity-c3-frontend
+      context: ../udacity-c3-frontend
       dockerfile: Dockerfile
