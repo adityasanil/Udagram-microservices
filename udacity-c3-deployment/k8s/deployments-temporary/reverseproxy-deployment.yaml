@@ -1,18 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    service: reverseproxy
   name: reverseproxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: reverseproxy
+      component: reverseproxy
   template:
     metadata:
       labels:
-        service: reverseproxy
+        component: reverseproxy
     spec:
       containers:
         - name: reverseproxy

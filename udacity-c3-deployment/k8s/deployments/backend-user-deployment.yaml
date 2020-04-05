@@ -2,20 +2,51 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: backend-user
+    service: backend-user
   name: backend-user
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: backend-user
+      service: backend-user
   template:
     metadata:
       labels:
-        run: backend-user
+        service: backend-user
     spec:
       containers:
         - image: adityasanil/udacity-restapi-user
           name: backend-user
           imagePullPolicy: Always
+          env:
+            - name: URL
+              valueFrom:
+                configMapKeyRef:
+                  name: env-config
+                  key: URL
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: env-config
+                  key: JWT_SECRET
+            - name: POSTGRESS_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: env-config
+                  key: POSTGRESS_DB
+            - name: POSTGRESS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: env-config
+                  key: POSTGRESS_HOST
+            - name: POSTGRESS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: env-secret
+                  key: POSTGRESS_PASSWORD
+            - name: POSTGRESS_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: env-secret
+                  key: POSTGRESS_USERNAME
       restartPolicy: Always
